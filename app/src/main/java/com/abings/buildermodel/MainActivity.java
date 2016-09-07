@@ -2,10 +2,12 @@ package com.abings.buildermodel;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
-import com.abings.buildermodel.Builder.FatPeople;
+import com.abings.buildermodel.Builder.Man;
 import com.abings.buildermodel.Builder.PeopleDirector;
-import com.abings.buildermodel.Builder.ThinPeople;
+import com.abings.buildermodel.Builder.PeopleProduct;
+import com.abings.buildermodel.Builder.Woman;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,10 +16,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        PeopleDirector peopleDirector = new PeopleDirector(new FatPeople());
-        peopleDirector.createPeople();
+        PeopleProduct woman = PeopleDirector.constructPeople(new Woman());
+        Log.i("Tag",woman.toString());
 
-        PeopleDirector peopleDirector1 = new PeopleDirector(new ThinPeople());
-        peopleDirector1.createPeople();
+        PeopleProduct man = PeopleDirector.constructPeople(new Man());
+        Log.i("Tag",man.toString());
     }
 }
